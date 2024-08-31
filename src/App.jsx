@@ -13,6 +13,7 @@ import ProtectedRoute from "./Lib/ProtectedRoute";
 
 function App() {
   const [user, setUser] = useState(false);
+  
 
   const router = createBrowserRouter([
     {
