@@ -1,0 +1,841 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+@import "./assets/responsive.scss";
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+::selection {
+  background: #9ec37c;
+  color: #fffefc;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  cursor: pointer;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+
+  &:hover {
+    scale: 1.08;
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+
+  overflow-x: hidden !important;
+  .outlet {
+    min-height: calc(100% - 105px);
+  }
+
+  //navbar user info styling
+  .user {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    gap: 25px;
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    span {
+      @include md {
+        display: none;
+      }
+    }
+
+    button {
+      @include sm {
+        display: none;
+      }
+    }
+  }
+  /*******************/
+
+  //profile page styling
+  .profilePage {
+    display: flex;
+    height: 100%;
+
+    @include md {
+      flex-direction: column;
+      overflow: scroll;
+    }
+
+    .details {
+      flex: 3;
+      overflow-y: scroll;
+      padding-bottom: 50px;
+
+      @include md {
+        flex: none;
+        height: max-content;
+      }
+
+      .wrapper {
+        padding-right: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        .title {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          h1 {
+            font-weight: 300;
+          }
+
+          button {
+            padding: 12px 24px;
+            background-color: #fece51;
+            cursor: pointer;
+            border: none;
+          }
+        }
+
+        .info {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          span {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+          }
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+    .chatContainer {
+      flex: 2;
+      background-color: #fcf5f3;
+      height: 100%;
+
+      @include md {
+        flex: none;
+        height: max-content;
+      }
+
+      .wrapper {
+        padding: 0px 20px;
+        height: 100%;
+      }
+    }
+  }
+  ///**********///
+
+  //login&register styling page
+  .login {
+    height: 100%;
+    display: flex;
+
+    .formContainer {
+      flex: 3;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        width: 400px;
+
+        @include md {
+          width: 300px;
+        }
+        @include sm {
+          width: 200px;
+        }
+
+        input {
+          padding: 10px;
+          border: 1px solid #9ec37c;
+          border-radius: 5px;
+          outline: none;
+        }
+
+        button {
+          padding: 15px;
+          border-radius: 5px;
+          margin-top: 15px;
+          border: none;
+          background-color: transparent;
+          color: black;
+          border: solid 1px #9ec37c;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.5s ease-in-out;
+          -webkit-transition: all 0.5s ease-in-out;
+          -moz-transition: all 0.5s ease-in-out;
+          -ms-transition: all 0.5s ease-in-out;
+          -o-transition: all 0.5s ease-in-out;
+          &:hover {
+            background-color: #9ec37c;
+            color: white;
+          }
+
+          &:disabled {
+            background-color: #bed9d8;
+            cursor: not-allowed;
+          }
+        }
+
+        span {
+          color: rgba(255, 0, 0, 0.591);
+        }
+
+        a {
+          font-size: 14px;
+          color: gray;
+          border-bottom: 1px solid gray;
+          width: max-content;
+        }
+      }
+    }
+
+    .imgContainer {
+      flex: 2;
+      background-color: #fcf5f3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+      }
+      @include sm {
+        display: none;
+      }
+    }
+  }
+  ////*********/////
+
+  //Estate card styling
+  .card {
+    display: flex;
+    gap: 20px;
+
+    .imageContainer {
+      flex: 2;
+      height: 200px;
+
+      @include md {
+        display: none;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+    }
+    .textContainer {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+
+      .title {
+        font-size: 20px;
+        font-weight: 600;
+
+        transition: all 0.4s ease;
+
+        &:hover {
+          color: #000;
+          scale: 1.01;
+        }
+      }
+
+      .address {
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: #d1b899;
+      }
+
+      .price {
+        font-size: 20px;
+        font-weight: 300;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: #9ec37c;
+        width: max-content;
+        color: white;
+      }
+
+      .bottom {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+
+        .features {
+          display: flex;
+          gap: 20px;
+          font-size: 14px;
+
+          .feature {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #e7e7fb;
+            padding: 5px;
+            border-radius: 5px;
+          }
+        }
+
+        .icons {
+          display: flex;
+          gap: 20px;
+
+          .icon {
+            border: 1px solid #9ec37c;
+            padding: 2px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+              background-color: #536cb0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /***********/
+
+  //Filtering bar styling
+
+  .filter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h1 {
+      font-weight: 300;
+      font-size: 24px;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      label {
+        font-size: 10px;
+      }
+
+      input,
+      select {
+        width: 100px;
+        padding: 10px;
+        border: 1px solid #9ec37c;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+    }
+
+    .top {
+      input {
+        width: 100%;
+      }
+    }
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      button {
+        padding: 10px;
+
+        border: none;
+        cursor: pointer;
+        background-color: #d1b899;
+      }
+    }
+  }
+
+  ///********************///
+
+  //ListPgae styling
+  .listPage {
+    display: flex;
+    height: 100%;
+
+    .listContainer {
+      flex: 3;
+      height: 100%;
+
+      .wrapper {
+        height: 100%;
+        padding-right: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        overflow-y: scroll;
+        padding-bottom: 50px;
+      }
+    }
+    .mapContainer {
+      flex: 2;
+      height: 100%;
+      background-color: #fcf5f3;
+
+      @include md {
+        display: none;
+      }
+    }
+  }
+  ///**************///
+
+  //SinglePage Styling
+  .singlePage {
+    display: flex;
+    height: 100%;
+
+    @include md {
+      flex-direction: column;
+      overflow: scroll;
+    }
+
+    .details {
+      flex: 3;
+      height: 100%;
+      overflow-y: scroll;
+
+      @include md {
+        flex: none;
+        height: max-content;
+        margin-bottom: 50px;
+      }
+
+      .wrapper {
+        padding-right: 50px;
+
+        @include lg {
+          padding-right: 20px;
+        }
+        @include md {
+          padding-right: 0px;
+        }
+
+        .info {
+          margin-top: 50px;
+          .top {
+            display: flex;
+            justify-content: space-between;
+
+            @include sm {
+              flex-direction: column;
+              gap: 20px;
+            }
+
+            .post {
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+              h1 {
+                font-weight: 600;
+                color: #536cb0;
+              }
+              .address {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+                color: #d1b899;
+                font-size: 14px;
+
+                img {
+                  width: 16px;
+                  height: 16px;
+                }
+              }
+              .price {
+                padding: 5px;
+                background-color: #d1b899;
+                border-radius: 5px;
+                width: max-content;
+                font-size: 20px;
+                font-weight: 300;
+                color: white;
+              }
+            }
+            .user {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              gap: 20px;
+              padding: 0px 50px;
+              border-radius: 10px;
+              background-color: #9ec37c;
+              font-weight: 600;
+
+              @include sm {
+                padding: 20px 50px;
+              }
+
+              img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+              }
+            }
+          }
+          .bottom {
+            margin-top: 50px;
+            color: #9ec37c;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+    .features {
+      flex: 2;
+      background-color: #fcf5f3;
+      height: 100%;
+      overflow-y: scroll;
+
+      @include md {
+        flex: none;
+        height: max-content;
+        margin-bottom: 50px;
+      }
+
+      .wrapper {
+        padding: 5px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        @include md {
+          padding: 20px;
+        }
+
+        .title {
+          font-weight: bold;
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+
+        .feature {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .featureText {
+            span {
+              font-weight: bold;
+            }
+            p {
+              font-size: 14px;
+              color: #d1b899;
+            }
+          }
+        }
+
+        .listVertical {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          padding: 20px 10px;
+          background-color: white;
+          border-radius: 10px;
+        }
+        .listHorizontal {
+          display: flex;
+          justify-content: space-between;
+          padding: 20px 10px;
+          background-color: white;
+          border-radius: 10px;
+        }
+
+        .sizes {
+          display: flex;
+          justify-content: space-between;
+
+          @include lg {
+            font-size: 12px;
+          }
+
+          .size {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+          }
+        }
+
+        .mapContainer {
+          width: 100%;
+          height: 200px;
+        }
+
+        .buttons {
+          display: flex;
+          justify-content: space-between;
+
+          button {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: white;
+            border: 1px solid #9ec37c;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  /**********************/
+
+  //Map Pin styling
+  .popupContainer {
+    display: flex;
+    gap: 20px;
+
+    img {
+      width: 64px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .textContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  .layout {
+    overflow-x: hidden !important;
+
+    //swiper styling
+
+    .slider {
+      width: 100%;
+      overflow-y: scroll;
+      display: flex;
+      gap: 20px;
+
+      @include sm {
+        height: 280px;
+      }
+
+      .fullSlider {
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to left, #536cb0 55%, #d1b899 80%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 9999;
+
+        .arrow {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .imgContainer {
+          flex: 2;
+
+          img {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: cover;
+          }
+        }
+
+        .close {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          color: white;
+          font-size: 36px;
+          font-weight: bold;
+        }
+      }
+
+      .bigImage {
+        flex: 3;
+        height: 360px !important;
+
+        @include sm {
+          flex: 2;
+        }
+      }
+      .smallImages {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        height: 360px !important;
+        gap: 20px;
+        overflow-y: scroll;
+
+        @include sm {
+          flex: 1;
+        }
+
+        img {
+          height: 100px;
+
+          @include sm {
+            height: 80px;
+          }
+        }
+      }
+    }
+    @include lg {
+      // background-color: rgb(247, 210, 196);
+      max-width: 1280px;
+    }
+
+    @include md {
+      // background-color: rgb(186, 203, 234);
+      max-width: 768px;
+      overflow-x: hidden !important;
+    }
+
+    @include sm {
+      max-width: 640px;
+      overflow-x: hidden !important;
+    }
+
+    .content {
+      // flex: 1;
+      height: 100%;
+      min-height: calc(100vh - 100px);
+
+      //image section styling
+      .image {
+        flex: 2;
+        background-color: #fcf5f3;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        @include md {
+          display: none;
+        }
+
+        img {
+          width: 115%;
+
+          @include lg {
+            width: 105%;
+          }
+        }
+      }
+
+      //Searchbar styling
+      form {
+        border: 1px solid #9ec37c;
+        display: flex;
+
+        height: 64px;
+
+        @include sm {
+          flex-direction: column;
+          border: none;
+        }
+
+        input {
+          border: none;
+          padding: 0px 10px;
+          width: 100%;
+          outline-color: #9ec37c;
+
+          @include lg {
+            padding: 0px 5px;
+
+            &:nth-child(2),
+            &:nth-child(3) {
+              width: 140px;
+            }
+          }
+          @include md {
+            width: 200px;
+            &:nth-child(2),
+            &:nth-child(3) {
+              width: 200px;
+            }
+          }
+
+          @include sm {
+            width: auto;
+            &:nth-child(2),
+            &:nth-child(3) {
+              width: auto;
+            }
+            padding: 20px;
+            border: 1px solid #9ec37c;
+          }
+        }
+        button {
+          border: none;
+          cursor: pointer;
+          background-color: #d1b899;
+
+          @include sm {
+            padding: 10px;
+          }
+        }
+      }
+      /*********/
+
+      .sBar button {
+        :nth-first-child() {
+          border-right-width: 0;
+        }
+      }
+    }
+  }
+}
